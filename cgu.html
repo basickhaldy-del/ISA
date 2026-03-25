@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions d'utilisation - Association ISA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a472a 0%, #0e2a1a 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Navigation interne */
+        .nav-legal {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-legal ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-legal li a {
+            display: block;
+            padding: 15px 20px;
+            color: #1a472a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-legal li a:hover {
+            background: #1a472a;
+            color: white;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Sections */
+        .legal-section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .legal-section h2 {
+            color: #1a472a;
+            border-left: 4px solid #d4af37;
+            padding-left: 20px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .legal-section h3 {
+            color: #2c5e3c;
+            margin: 20px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .legal-section h4 {
+            color: #4a7c59;
+            margin: 15px 0 10px 0;
+        }
+
+        .legal-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .legal-section ul, .legal-section ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        .legal-section li {
+            margin-bottom: 8px;
+        }
+
+        /* Cartes d'info */
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #d4af37;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box.warning {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .info-box.success {
+            border-left-color: #28a745;
+            background: #f0fff4;
+        }
+
+        /* Tableaux */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #1a472a;
+            color: white;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .badge-obligatoire {
+            background: #dc3545;
+            color: white;
+        }
+
+        .badge-optionnel {
+            background: #6c757d;
+            color: white;
+        }
+
+        /* Accordéon */
+        .accordion {
+            margin: 20px 0;
+        }
+
+        .accordion-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #f8f9fa;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .accordion-header:hover {
+            background: #e9ecef;
+        }
+
+        .accordion-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .legal-section {
+                padding: 20px;
+            }
+            
+            .nav-legal ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        /* Bouton impression */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a472a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            background: #0e2a1a;
+            transform: scale(1.05);
+        }
+        
+        @media print {
+            .nav-legal, .print-btn, .footer {
+                display: none;
+            }
+            .legal-section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Conditions Générales d'Utilisation</h1>
+        <p>Association ISA - Protection des données personnelles et gestion des dons</p>
+        <p style="font-size: 0.9em; margin-top: 20px;">Dernière mise à jour : 25 mars 2026</p>
+    </div>
+
+    <nav class="nav-legal">
+        <ul>
+            <li><a href="#cgv">CGU</a></li>
+            <li><a href="#donnees">Données personnelles</a></li>
+            <li><a href="#dons">Conditions des dons</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#responsabilite">Responsabilité</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Section 1 : CGU -->
+        <section id="cgv" class="legal-section">
+            <h2>Article 1 : Conditions Générales d'Utilisation</h2>
+            <p>Les présentes conditions générales d'utilisation (ci-après "CGU") régissent l'accès et l'utilisation du site internet de l'Association ISA (ci-après "le Site"). En accédant au Site, vous acceptez sans réserve les présentes CGU.</p>
+            
+            <h3>1.1 Objet du site</h3>
+            <p>Le site a pour objet de présenter les activités de l'Association ISA, de permettre aux utilisateurs de faire des dons, de s'informer sur nos actions et de nous contacter.</p>
+            
+            <h3>1.2 Accès au site</h3>
+            <p>L'accès au site est gratuit. Les frais d'accès et de navigation (connexion internet, matériel) restent à la charge de l'utilisateur. L'Association ISA se réserve le droit de modifier, suspendre ou interrompre l'accès à tout ou partie du site à tout moment, sans préavis.</p>
+            
+            <h3>1.3 Modification des CGU</h3>
+            <p>L'Association ISA se réserve le droit de modifier les présentes CGU à tout moment. Les modifications entrent en vigueur dès leur publication sur le site. Nous vous invitons à consulter régulièrement cette page.</p>
+            
+            <div class="info-box">
+                <strong>📌 À retenir :</strong> En continuant à utiliser le site après modification des CGU, vous acceptez les nouvelles conditions.
+            </div>
+        </section>
+
+        <!-- Section 2 : Protection des données personnelles -->
+        <section id="donnees" class="legal-section">
+            <h2>Article 2 : Protection des Données Personnelles (RGPD)</h2>
+            <p>L'Association ISA attache une importance particulière à la protection de vos données personnelles. Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, nous vous informons de nos pratiques.</p>
+            
+            <h3>2.1 Responsable de traitement</h3>
+            <p>Le responsable de traitement des données est :<br>
+            <strong>Association ISA</strong><br>
+            123 rue de l'Association, 75001 Paris<br>
+            Email : dpo@isa-association.fr<br>
+            Tél : 01 23 45 67 89</p>
+            
+            <h3>2.2 Données collectées</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Catégorie de données</th>
+                        <th>Données concernées</th>
+                        <th>Finalité</th>
+                        <th>Base légale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Identité</td>
+                        <td>Nom, prénom, date de naissance</td>
+                        <td>Établir le reçu fiscal, personnaliser la relation</td>
+                        <td>Exécution contractuelle, obligation légale</td>
+                    </tr>
+                    <tr>
+                        <td>Coordonnées</td>
+                        <td>Adresse email, adresse postale, téléphone</td>
+                        <td>Envoyer le reçu fiscal, communication, relances</td>
+                        <td>Exécution contractuelle, consentement</td>
+                    </tr>
+                    <tr>
+                        <td>Bancaires</td>
+                        <td>RIB, informations de paiement</td>
+                        <td>Traiter les dons, générer les reçus fiscaux</td>
+                        <td>Exécution contractuelle</td>
+                    </tr>
+                    <tr>
+                        <td>Données de navigation</td>
+                        <td>Adresse IP, cookies, pages visitées</td>
+                        <td>Analyser l'audience, améliorer le site</td>
+                        <td>Intérêt légitime, consentement</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>2.3 Destinataires des données</h3>
+            <p>Vos données sont traitées par :</p>
+            <ul>
+                <li>Le personnel habilité de l'Association ISA</li>
+                <li>Nos prestataires techniques (hébergeur, plateforme de paiement sécurisée)</li>
+                <li>Nos partenaires comptables pour la gestion des reçus fiscaux</li>
+                <li>L'administration fiscale dans le cadre des obligations légales</li>
+            </ul>
+            
+            <h3>2.4 Durée de conservation</h3>
+            <ul>
+                <li><strong>Données des donateurs :</strong> 5 ans à compter du dernier don (obligation fiscale)</li>
+                <li><strong>Données de prospection :</strong> 3 ans à compter du dernier contact</li>
+                <li><strong>Données de navigation :</strong> 13 mois maximum</li>
+                <li><strong>Justificatifs de paiement :</strong> 10 ans (obligation comptable)</li>
+            </ul>
+            
+            <h3>2.5 Vos droits</h3>
+            <p>Conformément à la réglementation, vous disposez des droits suivants :</p>
+            <ul>
+                <li><strong>Droit d'accès :</strong> obtenir confirmation que vos données sont traitées et y accéder</li>
+                <li><strong>Droit de rectification :</strong> modifier vos données inexactes</li>
+                <li><strong>Droit à l'effacement :</strong> supprimer vos données (dans les limites légales)</li>
+                <li><strong>Droit à la limitation :</strong> suspendre le traitement de vos données</li>
+                <li><strong>Droit à la portabilité :</strong> récupérer vos données dans un format structuré</li>
+                <li><strong>Droit d'opposition :</strong> vous opposer au traitement pour prospection</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>✉️ Pour exercer vos droits :</strong> envoyez un email à dpo@isa-association.fr avec une copie de votre pièce d'identité. Nous répondrons dans un délai maximum d'un mois.
+            </div>
+            
+            <h3>2.6 Droit de réclamation</h3>
+            <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a> ou 3 place de Fontenoy, 75007 Paris.</p>
+        </section>
+
+        <!-- Section 3 : Conditions des dons -->
+        <section id="dons" class="legal-section">
+            <h2>Article 3 : Conditions relatives aux dons</h2>
+            
+            <h3>3.1 Modalités de don</h3>
+            <p>L'Association ISA accepte les dons sous différentes formes :</p>
+            <ul>
+                <li><strong>Don en ligne :</strong> par carte bancaire via notre plateforme sécurisée Stripe</li>
+                <li><strong>Virement bancaire :</strong> sur notre compte en utilisant les coordonnées fournies</li>
+                <li><strong>Chèque :</strong> à l'ordre de "Association ISA" envoyé à notre adresse</li>
+                <li><strong>Don mensuel :</strong> prélèvement automatique avec autorisation préalable</li>
+            </ul>
+            
+            <h3>3.2 Reçu fiscal</h3>
+            <p>Conformément aux articles 200 et 238 bis du Code général des impôts, les dons à l'Association ISA ouvrent droit à une réduction d'impôt :</p>
+            <ul>
+                <li><strong>Pour les particuliers :</strong> 66% du montant du don, dans la limite de 20% du revenu imposable</li>
+                <li><strong>Pour les entreprises :</strong> 60% du montant du don, dans la limite de 0,5% du chiffre d'affaires</li>
+            </ul>
+            <p>Un reçu fiscal vous sera envoyé par email ou courrier postal dans un délai de 30 jours suivant la réception du don.</p>
+            
+            <div class="info-box success">
+                <strong>💡 Exemple :</strong> Pour un don de 100€, un particulier bénéficie d'une réduction d'impôt de 66€, soit un coût réel de 34€.
+            </div>
+            
+            <h3>3.3 Conditions de remboursement</h3>
+            <p>Les dons sont définitifs et non remboursables sauf dans les cas suivants :</p>
+            <ul>
+                <li>Erreur technique ayant entraîné un double prélèvement</li>
+                <li>Don effectué sans consentement (fraude)</li>
+                <li>Demande formulée dans les 14 jours suivant le don pour les premiers dons</li>
+            </ul>
+            <p>Pour toute demande de remboursement, contactez-nous à dons@isa-association.fr</p>
+            
+            <h3>3.4 Sécurité des transactions</h3>
+            <p>Les transactions bancaires sont sécurisées par notre partenaire de paiement agréé. Nous ne stockons jamais vos données bancaires complètes sur nos serveurs. Les paiements sont conformes à la norme PCI-DSS.</p>
+        </section>
+
+        <!-- Section 4 : Cookies -->
+        <section id="cookies" class="legal-section">
+            <h2>Article 4 : Gestion des cookies</h2>
+            
+            <h3>4.1 Qu'est-ce qu'un cookie ?</h3>
+            <p>Un cookie est un fichier texte déposé sur votre terminal lors de la visite d'un site. Il permet de reconnaître votre navigateur et de faciliter votre navigation.</p>
+            
+            <h3>4.2 Types de cookies utilisés</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Type de cookie</th>
+                        <th>Finalité</th>
+                        <th>Durée</th>
+                        <th>Consentement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cookies techniques</td>
+                        <td>Fonctionnement du site, mémorisation des préférences</td>
+                        <td>Session</td>
+                        <td>Exempté</td>
+                    </tr>
+                    <tr>
+                        <td>Cookies analytiques</td>
+                        <td>Mesure d'audience (Matomo/Google Analytics)</td>
+                        <td>13 mois</td>
+                        <td>Consentement requis</td>
+                    </tr>
+                    <tr>
+                        <td>Cookies de réseaux sociaux</td>
+                        <td>Partage de contenu</td>
+                        <td>Variable</td>
+                        <td>Consentement requis</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>4.3 Gestion des cookies</h3>
+            <p>Vous pouvez à tout moment modifier vos préférences en matière de cookies via le bandeau de consentement ou dans les paramètres de votre navigateur.</p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">🔧 Comment paramétrer les cookies selon votre navigateur ?</div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Chrome :</strong> Menu > Paramètres > Confidentialité et sécurité > Cookies</li>
+                            <li><strong>Firefox :</strong> Menu > Options > Vie privée et sécurité > Cookies</li>
+                            <li><strong>Safari :</strong> Safari > Préférences > Confidentialité > Cookies</li>
+                            <li><strong>Edge :</strong> Menu > Paramètres > Cookies et autorisations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5 : Responsabilité -->
+        <section id="responsabilite" class="legal-section">
+            <h2>Article 5 : Responsabilité</h2>
+            
+            <h3>5.1 Contenu du site</h3>
+            <p>L'Association ISA s'efforce de fournir des informations exactes et à jour. Toutefois, nous ne pouvons garantir l'exhaustivité ou l'absence de modification par un tiers. Les informations sont données à titre indicatif.</p>
+            
+            <h3>5.2 Liens externes</h3>
+            <p>Le site peut contenir des liens vers des sites tiers. L'Association ISA n'assume aucune responsabilité quant au contenu de ces sites ni aux pratiques de collecte de données qu'ils peuvent mettre en œuvre.</p>
+            
+            <h3>5.3 Disponibilité du service</h3>
+            <p>Nous mettons tout en œuvre pour assurer la continuité du service, mais ne pouvons garantir une disponibilité absolue. Des interruptions peuvent survenir pour des raisons de maintenance, de mise à jour ou de force majeure.</p>
+            
+            <div class="info-box warning">
+                <strong>⚠️ Limitation de responsabilité :</strong> L'Association ISA ne pourra être tenue responsable des dommages indirects résultant de l'utilisation du site.
+            </div>
+        </section>
+
+        <!-- Section 6 : Contact -->
+        <section id="contact" class="legal-section">
+            <h2>Article 6 : Contact et DPO</h2>
+            
+            <h3>Pour toute question relative aux présentes conditions :</h3>
+            <ul>
+                <li><strong>Délégué à la Protection des Données (DPO) :</strong> dpo@isa-association.fr</li>
+                <li><strong>Service dons :</strong> dons@isa-association.fr</li>
+                <li><strong>Service juridique :</strong> juridique@isa-association.fr</li>
+                <li><strong>Téléphone :</strong> 01 23 45 67 89</li>
+                <li><strong>Adresse postale :</strong> Association ISA - Service juridique, 123 rue de l'Association, 75001 Paris</li>
+            </ul>
+            
+            <h3>Formulaire de contact</h3>
+            <div class="info-box">
+                <p>Pour exercer vos droits RGPD, merci d'utiliser notre formulaire dédié ou d'envoyer un email avec les pièces justificatives.</p>
+                <button style="background: #1a472a; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Contacter le DPO</button>
+            </div>
+        </section>
+        
+        <!-- Section de validation -->
+        <section class="legal-section">
+            <h2>Article 7 : Acceptation des conditions</h2>
+            <p>En naviguant sur le site de l'Association ISA et en effectuant un don, vous reconnaissez avoir pris connaissance des présentes conditions et les accepter sans réserve.</p>
+            <p>Les présentes conditions sont régies par le droit français. Tout litige relèvera de la compétence exclusive des tribunaux de Paris.</p>
+            <p style="margin-top: 20px; font-style: italic;">Version du 25 mars 2026</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Association ISA</h4>
+                <p>Reconnue d'utilité publique<br>
+                N° RNA : W123456789<br>
+                SIRET : 123 456 789 00012</p>
+            </div>
+            <div class="footer-section">
+                <h4>Documents légaux</h4>
+                <p><a href="#">Mentions légales</a><br>
+                <a href="#">Politique de confidentialité</a><br>
+                <a href="#">Conditions générales</a><br>
+                <a href="#">Politique cookies</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📞 01 23 45 67 89<br>
+                ✉️ contact@isa-association.fr<br>
+                📍 123 rue de l'Association, 75001 Paris</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Association ISA - Tous droits réservés</p>
+            <p style="font-size: 0.8em; margin-top: 10px;">Conformément à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et d'opposition aux données vous concernant.</p>
+        </div>
+    </footer>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimer / Télécharger en PDF</button>
+
+    <script>
+        // Accordéon
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Animation smooth pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Message de confirmation pour le formulaire de contact
+        const contactBtn = document.querySelector('.info-box button');
+        if(contactBtn) {
+            contactBtn.addEventListener('click', () => {
+                alert("Formulaire de contact :\n\nPour exercer vos droits, merci d'envoyer un email à dpo@isa-association.fr avec une copie de votre pièce d'identité.\n\nNous vous répondrons dans un délai maximum d'un mois.");
+            });
+        }
+    </script>
+</body>
+</html>
